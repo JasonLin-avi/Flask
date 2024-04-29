@@ -1,10 +1,13 @@
-from flask import Flask
+from flask import Flask, make_response
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello, World!'
+    response = make_response('Hello, world! 123')
+    response.set_cookie('token','token value')
+    
+    return response
 
 @app.route('/test')
 def test():
