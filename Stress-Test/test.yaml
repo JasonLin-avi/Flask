@@ -1,13 +1,15 @@
 config:
   target: "http://127.0.0.1:5000"
   phases:
-    - duration: 3
-      arrivalRate: 1
+    - name: "test"
+      duration: 20
+      arrivalRate: 20
   defaults:
     headers:
+      x-jwt: "Jason"
       Cookie: "username=john_doe"
 
 scenarios:
   - flow:
       - get:
-          url: "/test"
+          url: "/"
